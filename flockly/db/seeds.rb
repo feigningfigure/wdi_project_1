@@ -11,4 +11,5 @@ User.destroy_all
 Location.destroy_all
 Message.destroy_all
 
-
+User.create name: "Andrew", hash_password: "password123"
+Location.create
