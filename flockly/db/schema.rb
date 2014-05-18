@@ -34,14 +34,14 @@ ActiveRecord::Schema.define(version: 20140518015915) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "hash_password"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "email"
     t.string   "gravatar_hash"
-    t.string   "type"
     t.string   "address"
+    t.string   "type"
     t.integer  "location_id"
     t.integer  "message_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
