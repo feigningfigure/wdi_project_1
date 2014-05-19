@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_attributes)
     if @user.save
-      redirect_to message_url, :notice => "Signed up!"
+      redirect_to login_url, :notice => "Signed up!"
     else
       render "new"
     end
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     @current_user = User.authenticated?(email, password)
 
     if @current_user
-      redirect_to messages_path
+      redirect_to messages_url
     else
       render text: "Invalid email or password.  Please try again."
     end

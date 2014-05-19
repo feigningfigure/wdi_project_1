@@ -61,6 +61,7 @@ resources :sessions
 # patch  '/messages/:id' => 'messages#update'
 # # Remove the message from the database (ie. 'User checkout')
 # delete '/messages/:id' => 'messages#destroy'
+resources :messages
 
 # #----LOCATIONS----
 
