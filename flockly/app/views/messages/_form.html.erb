@@ -1,15 +1,16 @@
 <h3>Join a Flock</h3>
-<%= form_for message do |f| %>
+
+<%= form_tag do %>
 <p>
-  <%= f.text_field :address, { placeholder: "i.e. 10 E 21st Street, New York, NY" } %>
+  <%= text_field_tag :address, "Address" %>
 </p>
 <p>
-  <%= f.text_field :summary, { placeholder: "A brief summary" } %>
+  <%= text_field_tag :summary, "A brief summary" %>
 </p>
 <p>
-  <%= f.text_area :content, { placeholder: "What do you want to talk about?" } %>
+  <%= text_area_tag :content, "What do you want to talk about?" %>
 </p>
 <p>
-  <%= f.submit %>
+  <%= submit_tag "Submit" %>
 </p>
 <% end %>

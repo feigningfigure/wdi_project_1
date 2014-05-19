@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
 
 
+
   def create
     @user = User.new(user_attributes)
     if @user.save
@@ -16,6 +17,8 @@ class UsersController < ApplicationController
       render "new"
     end
   end
+
+
 
   # def create
   #   user_hash = params[:user]

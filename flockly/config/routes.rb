@@ -61,7 +61,7 @@ get    '/messages/:id/edit' => 'messages#edit', as: :edit_message
 patch  '/messages/:id' => 'messages#update'
 # Remove the message from the database (ie. 'User checkout')
 delete '/messages/:id' => 'messages#destroy'
-# resources :messages
+resources :messages
 
 
 #----LOCATIONS----
@@ -80,6 +80,6 @@ get    '/locations/:id' => 'locations#show', as: :location
 # Remove the user's location when they have checked out.
 delete '/locations/:id' => 'locations#destroy'
 
-# resources :locations
+resources :locations
 
 end

@@ -1,7 +1,10 @@
 class Message < ActiveRecord::Base
 
+belongs_to :user
+has_one :location
+
 include WillPaginate
 
-  belongs_to :user
+  # has_many :user
 
 end

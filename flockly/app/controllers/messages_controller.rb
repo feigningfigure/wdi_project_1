@@ -3,12 +3,15 @@ class MessagesController < ApplicationController
   def index
     # @messages = Message.order(id: :desc)
     # @user = current_user
-    # @message = Message.new
+    @message = Message.new
   end
 
 
   def create
-    Message.create(message_attributes)
+    @message = Message.create({
+      summary: params[:summary],
+      content: params[:content],
+    })
     redirect_to messages_url
   end
 
@@ -18,7 +21,7 @@ class MessagesController < ApplicationController
   end
 
   def update
-     message = Message.find(params[:id])
+     message = Message.find(params[:address])
      message.update_attributes(message_attributes)
      redirect_to messages_url
   end
@@ -35,9 +38,9 @@ class MessagesController < ApplicationController
 
   private
 
-  def message_attributes
-    params.require(:message).permit(:summary, :content, :user_id)
-  end
+  # def message_attributes
+  #   params.require(:message).permit(:address, :summary, :content)
+  # end
 
 
 end

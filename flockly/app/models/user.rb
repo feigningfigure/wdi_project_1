@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
 
+  has_one :message
+
   attr_accessor :password
   before_save :encrypt_password
 
-
+#WHYUNOWORK?
   validates_confirmation_of :password, :on => :create, :message => "Passwords should match"
   validates_presence_of :password, :on => :create, :message => "Password can't be blank"
   validates_presence_of :email, :on => :create, :message => "Please enter an e-mail address"
@@ -27,6 +29,13 @@ class User < ActiveRecord::Base
     end
   end
 end
+
+# def address
+#   address = "#{self.street}, #{self.city}, #{self.state}, #{self.zipcode}"
+#   self.latitude = Geocoder.coordinates(address)[0]
+#   self.longitude = Geocoder.coordinates(address)[1]
+#   self.save
+# end
 
 
 
