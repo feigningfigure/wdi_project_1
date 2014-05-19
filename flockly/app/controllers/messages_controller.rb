@@ -1,5 +1,12 @@
 class MessagesController < ApplicationController
 
+  def index
+    # @messages = Message.order(id: :desc)
+    # @user = current_user
+    # @message = Message.new
+  end
+
+
   def create
     Message.create(message_attributes)
     redirect_to messages_url
@@ -24,16 +31,6 @@ class MessagesController < ApplicationController
   def show
     @message = Message.find(params[:id])
   end
-
-  def index
-    # @messages = Message.order(id: :desc)
-    # @user = current_user
-    # @message = Message.new
-  end
-
-
-
-
 
 
   private
