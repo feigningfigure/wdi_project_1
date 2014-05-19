@@ -1,0 +1,16 @@
+<h3>Check-In</h3>
+<%= form_for message do |f| %>
+<p>
+  <%= f.text_field :address, { placeholder: "i.e. 10 E 21st Street, New York, NY" } %>
+</p>
+<p>
+  <%= f.text_field :summary, { placeholder: "A brief summary" } %>
+</p>
+<p>
+  <%= f.text_area :content, { placeholder: "What do you want to talk about?" } %>
+</p>
+<%= f.hidden_field :user_id, {value: user.id} %>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>

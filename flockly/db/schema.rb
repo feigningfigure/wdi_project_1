@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140518015915) do
+ActiveRecord::Schema.define(version: 20140519004758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20140518015915) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "address"
+    t.integer  "user_id"
   end
 
   create_table "messages", force: true do |t|
@@ -29,19 +30,21 @@ ActiveRecord::Schema.define(version: 20140518015915) do
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.string   "hash_password"
-    t.string   "email"
-    t.string   "gravatar_hash"
-    t.string   "address"
-    t.string   "type"
-    t.integer  "location_id"
-    t.integer  "message_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
+    t.string   "gravatar_hash"
+    t.string   "type"
+    t.string   "address"
+    t.integer  "location_id"
+    t.integer  "message_id"
+    t.string   "password_hash"
+    t.string   "password_salt"
   end
 
 end

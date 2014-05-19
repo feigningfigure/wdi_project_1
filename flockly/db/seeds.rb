@@ -13,12 +13,12 @@ Location.delete_all
 Message.delete_all
 
 gravatar_url = "http://www.gravatar.com/avatar/"
-# binding.pry
-#Temporary User Array
+      # binding.pry
+      #Temporary User Array
 
 
 
-# messages = []
+          # messages = []
 10.times do
 Message.create({
 summary: "#{Faker::Lorem.sentence(1)}",
@@ -27,8 +27,8 @@ content: "#{Faker::Lorem.paragraphs(1)}"
 # messages << new_message
 end
 all_messages = Message.all
-# binding.pry
-# users = []
+          # binding.pry
+          # users = []
 10.times do
   name = "#{Faker::Name.first_name} #{Faker::Name.last_name}"
   email = Faker::Internet.free_email(name).gsub(/\s+/, "").downcase
@@ -41,10 +41,10 @@ all_messages = Message.all
     message_id: all_messages.sample.id
     })
 
-# Check User's e-mail for validity
-  # if new_user.valid?
-  #   users << new_user
-  # end
+            # Check User's e-mail for validity
+              # if new_user.valid?
+              #   users << new_user
+              # end
 end
 
 
