@@ -2,13 +2,16 @@
 
 <%= form_tag do %>
 <p>
-  <%= text_field_tag :address, "Address" %>
+  <%= label_tag :Location %><br>
+  <%= text_field_tag :address %>
 </p>
 <p>
-  <%= text_field_tag :summary, "A brief summary" %>
+  <%= label_tag :Summary %><br>
+  <%= text_field_tag :summary %>
 </p>
 <p>
-  <%= text_area_tag :content, "What do you want to talk about?" %>
+  <%= label_tag :Detail %><br>
+  <%= text_area_tag :content %>
 </p>
 <p>
   <%= submit_tag "Submit" %>

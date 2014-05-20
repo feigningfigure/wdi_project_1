@@ -8,9 +8,17 @@ class MessagesController < ApplicationController
 
 
   def create
+    # render json: params
+    @location = Location.create({
+      latitude: Geocoder.coordinates(params[:address])[0],
+      longitude: Geocoder.coordinates(params[:address])[1]
+      })
+
     @message = Message.create({
       summary: params[:summary],
       content: params[:content],
+      location_id: @location.id,
+      user_id: current_user.id
     })
     redirect_to messages_url
   end
@@ -28,7 +36,7 @@ class MessagesController < ApplicationController
 
   def destroy
     message[:message_id] = nil
-    redirect_to "/messages/new", :notice => "You left the flock."
+    redirect_to :new_message, :notice => "You left the flock."
   end
 
   def show

@@ -48,13 +48,13 @@ resources :sessions
 # #----MESSAGES----
 
 # Get all messages
-# get    '/results' => 'messages#index', as: :messages
+get    '/messages' => 'messages#index', as: :messages
 # Display message by a particular user
 # get    '/messages/:id' => 'messages#show', as: :message
 #Get page to create a new message by user
 get    '/messages/new' => 'messages#new', as: :new_message
 # Enter the message from the form into the database
-post   '/messages' => 'messages#create'
+post   '/messages/new' => 'messages#create'
 # Get the page with the message for editing.
 get    '/messages/:id/edit' => 'messages#edit', as: :edit_message
 # Update the page from the edit form in the database.

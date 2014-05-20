@@ -46,12 +46,13 @@ class UsersController < ApplicationController
     @current_user = User.authenticated?(email, password)
 
     if @current_user
-      redirect_to messages_url
+      redirect_to 'messages/new'
     else
       render text: "Invalid email or password.  Please try again."
     end
 
   end
+
 
   # def show
   #   @user = User.find(params[:id])
@@ -64,7 +65,7 @@ class UsersController < ApplicationController
   private
 
   def user_attributes
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :gravatar_hash, :address)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :gravatar_hash)
   end
 
 end
