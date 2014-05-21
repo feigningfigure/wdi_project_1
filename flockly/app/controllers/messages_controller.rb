@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     @all_messages = Message.all
 
     # all_locations = Location.all
-    matching_locations = Location.where({address: current_user.message.location.address})
+    @matching_locations = Location.where({address: current_user.message.location.address})
 
     # @nearby_messages = Message.all.each
     # render json: @matching_locations

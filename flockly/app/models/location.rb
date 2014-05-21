@@ -17,6 +17,23 @@ class Location < ActiveRecord::Base
     self.longitude.round(4)
   end
 
+
+
+  def distance_to(user = current_user)
+    #returns distance to user that is input.
+    user_location = user.location
+    return Geocoder::Calculations.distance_between([user_location.get_latitude, user_location.get_longitude], [self.get_latitude, self.get_longitude])
+  end
+
+  # def is_close_enough(distance = 1)
+  #   if distance_to() < distance
+  #     return true
+  #   else
+  #     return false
+  #   end
+  # end
+
+
   # has_many :user
 
 end
