@@ -20,23 +20,6 @@ class UsersController < ApplicationController
     end
   end
 
-
-
-  # def create
-  #   user_hash = params[:user]
-  #   if user_hash[:password] == user_hash[:password_confirmation]
-  #     user = User.create(user_attributes)
-  #     if user.valid?
-  #       @current_user = user
-  #       redirect_to "/users/login"
-  #     else
-  #       render text: "Email already registered. Please sign in."
-  #     end
-  #   else
-  #     render text: "Passwords did not match.  Please re-enter."
-  #   end
-  # end
-
   def login
 
   end
@@ -55,10 +38,6 @@ class UsersController < ApplicationController
 
   end
 
-
-  # def show
-  #   @user = User.find(params[:id])
-  # end
 
   # def delete
   #  @user = User.destroy(params[:id])

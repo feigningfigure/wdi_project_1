@@ -32,7 +32,7 @@ class MessagesController < ApplicationController
       message_id: message.id
       })
 
-      redirect_to messages_url
+      redirect_to locations_url
     # else
     #   redirect_to :new_message, :notice => "Please enter an address."
     # end
