@@ -1,9 +1,16 @@
 class User < ActiveRecord::Base
 
+  attr_writer :longitude, :latitude
+  after_initialize :geocode
+  after_update :geocode, :if => :address_changed?
+
   has_one :message
+  has_one :location, through: :message
 
   attr_accessor :password
   before_save :encrypt_password
+
+
 
 #WHYUNOWORK?
   validates_confirmation_of :password, :on => :create, :message => "Passwords should match"
@@ -28,7 +35,19 @@ class User < ActiveRecord::Base
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
+
+  def geocode
+    unless address.blank?
+      coordinates = Geocoder.coordinates(address)
+      self.latitude = coordinates[0]
+      self.longitude = coordinates[1]
+    end
+  end
+
+
 end
+
+
 
 # def address
 #   address = "#{self.street}, #{self.city}, #{self.state}, #{self.zipcode}"

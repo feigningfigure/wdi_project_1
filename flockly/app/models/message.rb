@@ -1,10 +1,20 @@
 class Message < ActiveRecord::Base
 
-belongs_to :user
-has_one :location
+  attr_reader :latitude, :longitude
 
-include WillPaginate
+
+  belongs_to :user
+  has_one :location
+
+  # include WillPaginate
 
   # has_many :user
+
+
+  def distance_to(user)
+    # binding.pry
+    user_location = user.message.location
+    Geocoder::Calculations.distance_between([user_location.get_latitude, user_location.get_longitude], [self.location.get_latitude, self.location.get_longitude])
+  end
 
 end

@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if @user
       session[:user_id] = @user.id
-      redirect_to :new_message, :notice => "You have logged in!"
+      redirect_to :new_message
     else
       flash.now.alert = "Invalid email or password"
       render "new"

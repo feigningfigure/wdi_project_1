@@ -2,25 +2,40 @@ class MessagesController < ApplicationController
 
   def index
     # @messages = Message.order(id: :desc)
-    # @user = current_user
-    @message = Message.new
+    @all_messages = Message.all
+
+    # all_locations = Location.all
+    matching_locations = Location.where({address: current_user.message.location.address})
+
+    # @nearby_messages = Message.all.each
+    # render json: @matching_locations
+
+
+
+
   end
 
-
+  # binding.pry
   def create
     # render json: params
-    @location = Location.create({
-      latitude: Geocoder.coordinates(params[:address])[0],
-      longitude: Geocoder.coordinates(params[:address])[1]
-      })
-
-    @message = Message.create({
+    # unless params[:address] == nil
+    message = Message.create({
       summary: params[:summary],
       content: params[:content],
-      location_id: @location.id,
       user_id: current_user.id
-    })
-    redirect_to messages_url
+      })
+
+    location = Location.create({
+      latitude: Geocoder.coordinates(params[:address])[0],
+      longitude: Geocoder.coordinates(params[:address])[1],
+      address: (params[:address]),
+      message_id: message.id
+      })
+
+      redirect_to messages_url
+    # else
+    #   redirect_to :new_message, :notice => "Please enter an address."
+    # end
   end
 
   def edit
@@ -43,8 +58,13 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
   end
 
+  def new
+    @message = Message.new
+  end
 
-  private
+
+
+  # private
 
   # def message_attributes
   #   params.require(:message).permit(:address, :summary, :content)

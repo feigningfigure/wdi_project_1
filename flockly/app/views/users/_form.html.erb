@@ -17,7 +17,7 @@
     <%= f.password_field :password_confirmation, { placeholder: "password again" } %>
   </p>
 
-  <%= f.hidden_field :gravatar_hash, {value: gravatar_url + Digest::MD5.hexdigest(email.to_s) } %>
+  <%= f.hidden_field :gravatar_hash, {value: gravatar_url + Digest::MD5.hexdigest(email.to_s) + "?d=mm" } %>
   <p>
     <%= f.submit 'Sign Up' %>
   </p>

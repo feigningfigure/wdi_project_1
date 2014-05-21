@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+
+
   def new
       # if current_user
       #   redirect_to messages_path
@@ -14,7 +16,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to login_url, :notice => "Signed up!"
     else
-      render "new"
+      render "new", :notice => "Incorrect.  Try again."
     end
   end
 

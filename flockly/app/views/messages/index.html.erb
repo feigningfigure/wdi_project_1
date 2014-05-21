@@ -1,5 +1,26 @@
-<h1>All Messages Around User</h1>
-<p>The header should contain the logged-in user's gravatar, summary, and logout button on the far right</p>
-<p>Here we'll show all other users, their summary, and message listed and paginated.</p>
+<h1>Hello <%= current_user.name %>!</h1>
+
+<h3> Users At Your Address: </h3>
+  <% @messages_at_address.each do |message| %>
+<p>
+    id: <%= message.id %>
+    summary: <%= message.summary %><br>
+    content: <%= message.content %>
+    location: <%= message.location.id %>, <%= message.location.address %>
+</p>
+
+    <% end %>
 
 
+
+
+<h3>All Messages:</h3>
+  <% @all_messages.each do |message| %>
+<p>
+    id: <%= message.id %>
+    summary: <%= message.summary %><br>
+    content: <%= message.content %>
+    location: <%= message.location.id %>, <%= message.location.address %>
+</p>
+
+    <% end %>

@@ -23,6 +23,7 @@ gravatar_url = "http://www.gravatar.com/avatar/"
 Message.create({
 summary: "#{Faker::Lorem.sentence(1)}",
 content: "#{Faker::Lorem.paragraphs(1)}"
+
 })
 # messages << new_message
 end
